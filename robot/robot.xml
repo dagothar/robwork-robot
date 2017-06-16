@@ -1,0 +1,21 @@
+<SerialDevice name="my_robot">
+  
+  <Frame name="base" type="Movable">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+  </Frame>
+  
+  <!-- define joints below -->
+  <Joint name="joint_1" refframe="base" type="Revolute">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+    
+    <PosLimit refjoint="joint_1" min="-360" max="360"/>
+    <VelLimit refjoint="joint_1" max="60"/>
+    <AccLimit refjoint="joint_1" max="120"/>
+  </Joint>
+  
+  <!-- collision setup -->
+  <CollisionSetup file="collision_setup.xml"/>
+  
+</SerialDevice>
