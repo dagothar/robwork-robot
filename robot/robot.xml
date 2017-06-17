@@ -44,6 +44,25 @@
   <PosLimit refjoint="joint4" min="-360" max="360"/>
   <VelLimit refjoint="joint4" max="60"/>
   <AccLimit refjoint="joint4" max="120"/>
+  
+  <!-- robot 3D parts -->
+  <Drawable name="base_geo" refframe="base">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="../geometry/base"/>
+  </Drawable>
+  
+  <Drawable name="joint1_geo" refframe="joint1">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="../geometry/joint1"/>
+  </Drawable>
+  
+  <Drawable name="joint2_geo" refframe="joint2">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="../geometry/joint2"/>
+  </Drawable>
     
   <!-- collision setup -->
   <CollisionSetup file="collision_setup.xml"/>
