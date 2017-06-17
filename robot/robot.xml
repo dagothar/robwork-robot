@@ -1,20 +1,50 @@
 <SerialDevice name="my_robot">
   
+  <!-- robot base frame -->
   <Frame name="base" type="Movable">
     <RPY>0 0 0</RPY>
     <Pos>0 0 0</Pos>
   </Frame>
   
-  <!-- define joints below -->
-  <Joint name="joint_1" refframe="base" type="Revolute">
-    <RPY>0 0 0</RPY>
-    <Pos>0 0 0</Pos>
-    
-    <PosLimit refjoint="joint_1" min="-360" max="360"/>
-    <VelLimit refjoint="joint_1" max="60"/>
-    <AccLimit refjoint="joint_1" max="120"/>
-  </Joint>
+  <!-- joint definitions -->
+  <DHJoint name="joint1" alpha="0" a="0" d="0.5" offset="0"/>       <!-- _revolute_ joints have alpha/a/d/offset parameters -->
+  <DHJoint name="joint2" alpha="0" a="0.3" d="0" offset="0"/>
+  <DHJoint name="joint3" alpha="0" a="0.3" theta="0" offset="0"/>   <!-- _prismatic_ joints have alpha/a/theta/offset parameters -->
+  <DHJoint name="joint4" alpha="0" a="0" d="0" offset="0"/>
   
+  <!-- you can also define joints in Pos/RPY format: -->
+  <!-- RPY is roll/pitch/yaw  - or - RZ/RY/RX in degrees -->
+  <!-- Pos is a position vector: X/Y/Z in meters -->
+  <!--
+  <Joint name="joint1" type="Revolute">
+    <RPY>0 0 0</RPY>    
+  </Joint>
+  -->
+  
+  <!-- TCP frame -->
+  <Frame name="TCP">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 -0.25</Pos>
+  </Frame>
+  
+  
+  <!-- joint limits -->
+  <PosLimit refjoint="joint1" min="-360" max="360"/>    <!-- position limit in degrees -->
+  <VelLimit refjoint="joint1" max="60"/>                <!-- velocity limit in degrees/second -->
+  <AccLimit refjoint="joint1" max="120"/>               <!-- acceleration limit in degrees/second^2 -->
+  
+  <PosLimit refjoint="joint2" min="-360" max="360"/>
+  <VelLimit refjoint="joint2" max="60"/>
+  <AccLimit refjoint="joint2" max="120"/>
+  
+  <PosLimit refjoint="joint3" min="-0.25" max="0.25"/>  <!-- position limit in meters -->
+  <VelLimit refjoint="joint3" max="1"/>                 <!-- position limit in meters/second -->
+  <AccLimit refjoint="joint3" max="2"/>                 <!-- position limit in meters/second^2 -->
+  
+  <PosLimit refjoint="joint4" min="-360" max="360"/>
+  <VelLimit refjoint="joint4" max="60"/>
+  <AccLimit refjoint="joint4" max="120"/>
+    
   <!-- collision setup -->
   <CollisionSetup file="collision_setup.xml"/>
   
