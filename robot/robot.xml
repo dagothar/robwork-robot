@@ -63,6 +63,12 @@
     <Pos>0 0 0</Pos>
     <Polytope file="../geometry/joint2"/>
   </Drawable>
+  
+  <Drawable name="joint3_geo" refframe="joint3">
+    <RPY>0 0 0</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="../geometry/joint3"/>
+  </Drawable>
     
   <!-- collision setup -->
   <CollisionSetup file="collision_setup.xml"/>
